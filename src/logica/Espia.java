@@ -1,20 +1,29 @@
 package logica;
 
-public class Espia {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.openstreetmap.gui.jmapviewer.Coordinate;
+
+public class Espia implements Comparable<Espia>{
 	private String nombre;
-	private Coordenada coordenada;
+	private Coordinate coordenada;
+	private ArrayList<Espia> espiasCercanos;
 	
-	
-	public Espia(String nombre, Coordenada coordenada) {
+	public Espia(String nombre, Coordinate coordenada) {
 		this.nombre = nombre;
 		this.coordenada = coordenada;
+		this.espiasCercanos = new ArrayList<>();
+	}
+	public void agregarEspiasCeranos(Espia...espias) {
+		this.espiasCercanos.addAll(Arrays.asList(espias));
 	}
 	
 	public String obtenerNombreEspia() {
 		return this.nombre;
 	}
 	
-	public Coordenada obtenerCoordenadaEspia() {
+	public Coordinate obtenerCoordenadaEspia() {
 		return this.coordenada;
 	}
 	
@@ -27,4 +36,23 @@ public class Espia {
 		.append(this.obtenerCoordenadaEspia().toString());
 		return infoEspia.toString();
 	}
+
+	@Override
+	public int compareTo(Espia o) {
+		Coordinate coordenadaEspia = o.obtenerCoordenadaEspia();
+		int a;
+		a = Double.compare(this.coordenada.getLat(), coordenadaEspia.getLat());
+		if(a == 0) {
+			a = Double.compare(this.coordenada.getLon(), coordenadaEspia.getLon());
+			if(a == 0) {
+				a = this.nombre.compareTo(o.nombre);
+			}
+		}
+		return a;
+	}
+	
+	public ArrayList<Espia> obtenerEspiasCercanos() {
+		return this.espiasCercanos;
+	}
+	
 }
