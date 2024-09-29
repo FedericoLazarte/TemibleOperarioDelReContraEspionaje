@@ -38,7 +38,7 @@ public class Main extends JFrame{
 	private JFrame frameParaElegirRelacion;
 	
 	//--------------------nuevo----------------------------
-	private static String direccionArchivo ="espias.txt";
+	private static String direccionArchivo ="src/logica/espias.txt";
 	//-----------------------------------------------------
 	
 	
