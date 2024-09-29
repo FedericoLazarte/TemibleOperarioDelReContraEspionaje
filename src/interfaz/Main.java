@@ -37,6 +37,11 @@ public class Main extends JFrame{
 	private boolean agmEnPantalla;
 	private JFrame frameParaElegirRelacion;
 	
+	//--------------------nuevo----------------------------
+	private static String direccionArchivo ="src/logica/espias.txt";
+	//-----------------------------------------------------
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -60,8 +65,9 @@ public class Main extends JFrame{
 		initializeUI();
 	}
 
+	//cambio!! al metodo de EspiasHarcodeado "EspiasDeArgentina" le pasas el archivo
 	private void agregarEspeciasArgentinos() {
-		for(Espia e : EspiasHarcodeado.EspiasDeArgentina())
+		for(Espia e : EspiasHarcodeado.EspiasDeArgentina(direccionArchivo))
 			nuevoEspia(e);
 	}
 	
