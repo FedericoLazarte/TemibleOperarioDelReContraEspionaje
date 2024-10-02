@@ -11,7 +11,7 @@ public class Arista <T extends Comparable<T>> implements Comparable<Arista<T>>{
 	public Arista(T verticeInicio, T VerticeDestino, double peso) {
 		this.verticeInicio = verticeInicio;
 		this.verticeDestino = VerticeDestino;
-	//	pesoValido(peso);
+		pesoValido(peso);
 		this.peso = peso;
 		
 	}
